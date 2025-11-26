@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For You</title>
+<style>
+  :root{
+    --bg1:#ffe8f3;
+    --bg2:#f3e8ff;
+    --card:#ffffffdd;
+    --accent:#ff7ab8;
+    --text:#2e2e35;
+    --muted:#6a6a6f;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100vh;
+    background:radial-gradient(circle at top, #ffd8e8, #ffeefa);
+    font-family: sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    overflow-x:hidden;
+  }
+
+  .card{
+    width:100%; max-width:750px;
+    background:var(--card);
+    backdrop-filter:blur(12px);
+    padding:30px;
+    border-radius:26px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.14);
+    animation:fade .7s ease;
+  }
+
+  @keyframes fade{0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
+
+  h1{
+    margin:0;text-align:center;color:var(--text);
+    font-size:28px;font-weight:600;
+  }
+
+  p{
+    margin-top:18px;color:var(--muted);
+    line-height:1.7;text-align:center;font-size:16px;
+  }
+
+  .heart{
+    width:48px;height:48px;border-radius:50%;
+    background:var(--accent);color:white;
+    display:flex;align-items:center;justify-content:center;
+    margin:22px auto 0;font-size:20px;
+    animation:pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.13);}100%{transform:scale(1);}}
+
+  /* Soft petals falling */
+  .petal{
+    position:fixed;top:-10vh;width:26px;height:26px;
+    background:url('https://i.imgur.com/DL5Uu5y.png');
+    background-size:contain;background-repeat:no-repeat;
+    opacity:0.8;animation:fall linear infinite;
+    pointer-events:none;
+  }
+
+  @keyframes fall{
+    0%{transform:translateY(0) rotate(0deg);} 
+    100%{transform:translateY(110vh) rotate(360deg);} 
+  }
+
+  /* MUSIC */
+  .music{margin:24px auto 0;width:100%;max-width:360px;}
+  iframe{width:100%;height:90px;border-radius:12px;}
+
+  @media(max-width:480px){
+    h1{font-size:22px;}
+    p{font-size:14px;}
+    .card{padding:20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Petals -->
+<script>
+for(let i=0;i<14;i++){
+  let p=document.createElement('div');
+  p.className='petal';
+  p.style.left=Math.random()*100+'vw';
+  p.style.animationDuration=7+Math.random()*6+'s';
+  document.body.appendChild(p);
+}
+</script>
+
+<div class="card">
+  <h1>A Small Message…</h1>
+
+  <p>
+    I know today might be a little tougher than usual… your body feels tired,
+    mood gets a bit fragile, and even simple things feel heavier. And that’s okay.
+    Truly okay.<br><br>
+
+    You don’t have to respond, you don’t have to explain, you don’t have to act
+    normal. Just breathe… slowly… and give yourself the softness you deserve.
+    Period days aren’t easy — your body is doing so much already.<br><br>
+
+    So this little note isn’t to bother you… it’s just a small comfort.
+    <strong>Take rest, stay warm, drink something soothing… and be gentle with yourself.
+    You deserve peace today.</strong><br><br>
+
+    No expectations. No pressure. Just wishing that you feel a little lighter,
+    a little calmer, and a little more okay.
+  </p>
+
+  <div class="heart">❤</div>
+
+  <div class="music">
+    <iframe src="https://open.spotify.com/embed/track/4ZLzoOkj0MPWrTLvooIuaa" allow="encrypted-media"></iframe>
+  </div>
+</div>
+
+</body>
+</html>
